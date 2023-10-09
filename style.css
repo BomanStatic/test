@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+:root {
+    --clr: white;
+}
+body {
+    font-family: sans-serif;
+    background-color: hsl(229, 34%, 4%);
+    color: white;
+}
+h1 {
+    font-family: "Anton", sans-serif;
+    font-size: 9.375rem;
+    text-align: center;
+}
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+}
+h3 {
+    font-size: 4.5rem;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+main {
+    padding-block: 4rem;
+}
+section {
+    display: grid;
+    place-content: center;
+    padding-block: 4rem;
+    gap: 10rem;
+}
+.card {
+    position: relative;
+    height: 40rem;
+    aspect-ratio: 1/1;
+    border-radius: 4rem;
+    padding: 4rem;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.slide-up {
+    transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.card > p,
+.slide_up--card > p {
+    font-size: 2rem;
+}
+.blue {
+    background-color: hsl(206, 99%, 55%);
+}
+.purple {
+    background-color: hsl(266, 98%, 56%);
+}
+.slide_up--card {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    color: hsl(206, 99%, 55%);
+    background-color: hsl(206, 100%, 86%);
+    height: 40rem;
+    aspect-ratio: 1/1;
+    padding: inherit;
+    top: 0;
+    left: 0;
+    transform: translateY(90%);
+    border-radius: inherit;
+    transition: transform 0.2s ease-out;
+}
+.slide-up:hover {
+    transform: perspective(20rem) rotateX(2deg) rotateY(-2deg);
+}
+.card:hover .slide_up--card {
+    transform: translateY(0);
+}
+.card:hover > h3,
+.card:hover > p {
+    display: none;
+}
+.btn {
+    margin-top: auto;
+    margin-left: auto;
+    text-decoration: none;
+    color: white;
+    font-size: 1.7rem;
+    padding: 1.7rem 3rem;
+    border-radius: 50vh;
+    width: fit-content;
+    transition: all 0.2s ease-out;
+}
+.btn:hover {
+    transform: scale(1.05) scaleX(1.1);
+}
+.btn-blue {
+    background-color: hsl(206, 99%, 55%);
+}
+.btn-blue:hover {
+    background-color: hsla(206, 99%, 55%, 0.7);
+}
+.btn-purple {
+    background-color: hsl(266, 98%, 56%);
+}
+.btn-purple:hover {
+    background-color: hsla(266, 98%, 56%, 0.7);
+}
+.scale_up--card {
+    display: flex;
+    flex-direction: column;
+    width: 12rem;
+    aspect-ratio: 1/1;
+    border-radius: 50vh;
+    background-color: hsl(267, 100%, 93%);
+    color: hsl(266, 98%, 56%);
+    position: absolute;
+    transition: all 0.2s ease-out;
+    overflow: hidden;
+}
+.scale_up--card > * {
+    display: none;
+}
+.scale-up:hover {
+    transform: perspective(20rem) rotateX(-2deg) rotateZ(-1deg);
+}
+.scale-up:hover > .scale_up--card {
+    padding: inherit;
+    height: 40rem;
+    width: 40rem;
+    border-radius: inherit;
+    top: 0;
+    left: 0;
+}
+.scale_up--card:hover > * {
+    display: block;
+}
+.scale-up {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.text-container {
+    font-size: 2rem;
+    margin-top: auto;
+    align-items: flex-end;
+}
+.scale_up--card > p {
+    font-size: 2rem;
+}
+
+.hamburger-menu {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 2.5rem;
+    height: 2rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 100;
+}
+.line {
+    width: 100%;
+    height: 0.275rem;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1rem;
+    transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.line-4,
+.line-2 {
+    position: absolute;
+    top: calc(50% - 0.15rem);
+    z-index: 1000;
+}
+.active > .line-1 {
+    transform: translateY(-100%);
+}
+.active > .line-3 {
+    transform: translateY(100%);
+}
+.active > .line-2 {
+    transform: rotate(45deg);
+}
+.active > .line-4 {
+    transform: rotate(-45deg);
+}
+.nav-list {
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    position: fixed;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    top: 0rem;
+    text-align: center;
+    background-color: hsl(231, 8%, 17%);
+    font-family: "Anton", sans-serif;
+    font-size: 9.375rem;
+    animation: grow 0.2s ease-out forwards;
+}
+.active-nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav {
+    background-color: hsl(229, 34%, 4%);
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    z-index: 100;
+    justify-content: flex-end;
+    padding-inline: 1rem;
+    padding-block: 1rem;
+    transition: all 0.2s ease-out;
+}
+@keyframes grow {
+    0% {
+        transform: scaleX(0);
+        transform: translate(-100%);
+    }
+    100% {
+        transform: translate(0);
+        transform: scaleX(1);
+    }
+}
+
+.nav-item {
+    color: white;
+    transition: 0.4s;
+    width: 100%;
+}
+.nav-list_container {
+    width: fit-content;
+    /* transform-style: preserve-3d; */
+}
+.nav-list_container:hover .nav-item:not(:hover) {
+    opacity: 0.1;
+}
+.rotate-span {
+    transform: rotate(45deg);
+}
